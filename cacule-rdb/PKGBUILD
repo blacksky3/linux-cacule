@@ -70,7 +70,7 @@ if [[ "$_compiler" = "2" ]]; then
 fi
 options=(!strip)
 
-archlinuxpath=https://raw.githubusercontent.com/archlinux/svntogit-packages/3b39577d2ed83108724c83c5e91dfced35e68459/trunk
+archlinuxpath=https://raw.githubusercontent.com/archlinux/svntogit-packages/7f98cfac6f93f0c57b930d42da2f95e77076fbc4/trunk
 lucjanpath=https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/$major
 
 source=(https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar.xz
