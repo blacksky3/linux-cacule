@@ -6,13 +6,13 @@
 #                                  |___/
 
 #Maintainer: blacksky3 <blacksky3@tuta.io> <https://github.com/blacksky3>
-#Credits: Jan Alexander Steffens (heftig) <heftig@archlinux.org> ---> For the base PKGBUILD
-#Credits: Andreas Radke <andyrtr@archlinux.org> ---> For the base PKGBUILD
-#Credits: Linus Torvalds ---> For the linux kernel
-#Credits: Joan Figueras <ffigue at gmail dot com> ---> For the base PKFBUILD
-#Credits: Hamad Al Marri <hamad.s.almarri@gmail.com> <https://github.com/hamadmarri/cacule-cpu-scheduler> ---> For CacULE CPU Scheduler patch
-#Credits: Piotr Górski <lucjan.lucjanov@gmail.com> <https://github.com/sirlucjan> ---> For Arch patches and keep alive CacULE CPU Scheduler patch
-#Credits: Etienne Juvigny (Tk-Glitch) <tkg@froggi.es> <https://github.com/Tk-Glitch> ---> For config setings
+#Credits: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+#Credits: Andreas Radke <andyrtr@archlinux.org>
+#Credits: Joan Figueras <ffigue at gmail dot com>
+#Credits: Linus Torvalds
+#Credits: Hamad Al Marri <hamad.s.almarri@gmail.com> <https://github.com/hamadmarri/cacule-cpu-scheduler>
+#Credits: Piotr Górski <lucjan.lucjanov@gmail.com> <https://github.com/sirlucjan>
+#Credits: Etienne Juvigny (Tk-Glitch) <tkg@froggi.es> <https://github.com/Tk-Glitch>
 
 ################################# Arch ################################
 
@@ -78,7 +78,12 @@ source=(https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar.
         0001-cacULE-5.17.patch
         # Piotr Górski patches
         # Arch patches
-        ${lucjanpath}/arch-patches/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch)
+        ${lucjanpath}/arch-patches/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
+        # Block patches. Set BFQ as default
+        ${lucjanpath}/block-patches-sep/0001-block-Kconfig.iosched-set-default-value-of-IOSCHED_B.patch
+        ${lucjanpath}/block-patches-sep/0002-block-Fix-depends-for-BLK_DEV_ZONED.patch
+        ${lucjanpath}/ll-patches/0002-LL-elevator-set-default-scheduler-to-bfq-for-blk-mq.patch
+        ${lucjanpath}/ll-patches/0003-LL-elevator-always-use-bfq-unless-overridden-by-flag.patch)
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -393,7 +398,7 @@ build(){
 }
 
 _package(){
-  pkgdesc='The Linux kernel and modules with Hamad Al Marri CacULE CPU scheduler patch and Piotr Górski Arch patches - RDB (Response Driven Balancer) enabled'
+  pkgdesc='The Linux kernel and modules with Hamad Al Marri CacULE CPU scheduler patch and Piotr Górski Arch and Block patches - RDB (Response Driven Balancer) enabled'
   depends=(coreutils kmod initramfs)
   optdepends=('crda: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
@@ -510,4 +515,8 @@ _package-headers(){
 sha256sums=(555fef61dddb591a83d62dd04e252792f9af4ba9ef14683f64840e46fa20b1b1
             05381b085c83737922a85fa6f42aa61b3d1400840a7952bf8524726e1d8f74f8
             3811d55c47d1f101c3038709ff7a160066c21903532bb8b97140ff2b74427225
-            4bd1bac2959b989af0dae573123b9aff7c609090537e94ee0ae05099cad977b8)
+            4bd1bac2959b989af0dae573123b9aff7c609090537e94ee0ae05099cad977b8
+            4d385d6a7f7fd9f9aba19d5c24c24814e1af370ff245c8dc98b03482a27cb257
+            a043e4c393395e6ad50d35c973fa0952f5deb109aee8a23103e24297c027641e
+            6978a2010c3a2dd7bec1260e3f1e0f9d6ebc032664cdd917847f352e58ba2870
+            b5ff6f189a83472b737965e0412ca401af4bc539b308e0d9bfa403294e6795e0)

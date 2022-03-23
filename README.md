@@ -1,6 +1,6 @@
 # linux-cacule
 
-Linux kernel build for Archlinux with CacULE CPU scheduler patch by Hamad Al Marri.
+Linux kernel build for Archlinux with CacULE CPU scheduler patch by Hamad Al Marri and Piotr Górski Arch and Block patches.
 
 # Version
 
