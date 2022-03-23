@@ -11,7 +11,7 @@
 #Credits: Linus Torvalds ---> For the linux kernel
 #Credits: Joan Figueras <ffigue at gmail dot com> ---> For the base PKFBUILD
 #Credits: Hamad Al Marri <hamad.s.almarri@gmail.com> <https://github.com/hamadmarri/cacule-cpu-scheduler> ---> For CacULE CPU Scheduler patch
-#Credits: Piotr Górski <lucjan.lucjanov@gmail.com> <https://github.com/sirlucjan> ---> For Arch patches and take alive CacULE CPU Scheduler patch
+#Credits: Piotr Górski <lucjan.lucjanov@gmail.com> <https://github.com/sirlucjan> ---> For Arch patches and keep alive CacULE CPU Scheduler patch
 #Credits: Etienne Juvigny (Tk-Glitch) <tkg@froggi.es> <https://github.com/Tk-Glitch> ---> For config setings
 
 ################################# Arch ################################
