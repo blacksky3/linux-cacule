@@ -8,8 +8,8 @@ Linux kernel build for Archlinux with CacULE CPU scheduler patch by Hamad Al Mar
 
 # Build
 
-    git clone https://github.com/blacksky3/linux-bore.git
-    cd linux-linux-bore
+    git clone https://github.com/blacksky3/linux-cacule.git
+    cd linux-linux-{cacule,cacule-rdb
     env_compiler=(1 or 2) makepkg -s
 
 # Build variables
