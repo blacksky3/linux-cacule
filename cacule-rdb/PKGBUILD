@@ -79,7 +79,7 @@ source=(https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar.
         ${lucjanpath}/block-patches-sep/0002-block-Fix-depends-for-BLK_DEV_ZONED.patch
         ${lucjanpath}/ll-patches/0002-LL-elevator-set-default-scheduler-to-bfq-for-blk-mq.patch
         ${lucjanpath}/ll-patches/0003-LL-elevator-always-use-bfq-unless-overridden-by-flag.patch
-        # CacULE patch
+        # CacULE patches
         ${lucjanpath}/cacule-patches-v2/0001-cacULE-5.17.patch
         # CPU patches
         ${lucjanpath}/cpu-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
@@ -410,7 +410,7 @@ build(){
 }
 
 _package(){
-  pkgdesc='The Linux kernel and modules with Hamad Al Marri CacULE CPU scheduler patch, Piotr Górski Arch and Block patches, XanMod CPU Power patch and Graysky2 kernel_compiler_patch patch - RDB (Response Driven Balancer) enabled'
+  pkgdesc='The Linux kernel and modules with Hamad Al Marri CacULE CPU scheduler patch (kept alive artificially by Piotr Górski), Piotr Górski Arch and Block patches, XanMod CPU Power patch and Graysky2 kernel_compiler_patch patch - RDB (Response Driven Balancer) enabled'
   depends=(coreutils kmod initramfs)
   optdepends=('crda: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
