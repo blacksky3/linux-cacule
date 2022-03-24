@@ -290,9 +290,9 @@ index 9745613d5..2247e868d 100644
 
 +#ifdef CONFIG_CACULE_SCHED
 +#ifdef CONFIG_CACULE_RDB
-+	printk(KERN_INFO "CacULE CPU scheduler (RDB) v5.17 by Hamad Al Marri (kept alive artificially by P. Jung).");
++	printk(KERN_INFO "CacULE CPU scheduler (RDB) v5.17 by Hamad Al Marri (kept alive artificially by P. Jung <ptr1337@cachyos.org>).");
 +#else
-+	printk(KERN_INFO "CacULE CPU scheduler v5.17 by Hamad Al Marri (kept alive artificially by P. Jung).");
++	printk(KERN_INFO "CacULE CPU scheduler v5.17 by Hamad Al Marri (kept alive artificially by P. Jung <ptr1337@cachyos.org>).");
 +#endif
 +#endif
 +
