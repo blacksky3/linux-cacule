@@ -96,11 +96,6 @@ export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EP
 prepare(){
   cd ${srcdir}/linux-$pkgver
 
-  msg2 "Correct the version of CacULE"
-  sed -i s'/v5.16/v5.17/' ${srcdir}/0001-cacULE-5.17.patch
-
-  plain ""
-
   local src
   for src in "${source[@]}"; do
     src="${src%%::*}"
