@@ -290,9 +290,9 @@ index 9745613d5..2247e868d 100644
 
 +#ifdef CONFIG_CACULE_SCHED
 +#ifdef CONFIG_CACULE_RDB
-+	printk(KERN_INFO "CacULE CPU scheduler (RDB) v5.17 by Hamad Al Marri (kept alive artificially by P. Jung <ptr1337@cachyos.org>).");
++	printk(KERN_INFO "CacULE CPU scheduler (RDB) v5.17 by Hamad Al Marri (kept alive artificially by Piotr Gorski <lucjan.lucjanov@gmail.com>).");
 +#else
-+	printk(KERN_INFO "CacULE CPU scheduler v5.17 by Hamad Al Marri (kept alive artificially by P. Jung <ptr1337@cachyos.org>).");
++	printk(KERN_INFO "CacULE CPU scheduler v5.17 by Hamad Al Marri (kept alive artificially by Piotr Gorski <lucjan.lucjanov@gmail.com>).");
 +#endif
 +#endif
 +
@@ -2185,7 +2185,7 @@ index de53be905..b88f7b21c 100644
  	/* list of leaf cfs_rq on this CPU: */
  	struct list_head	leaf_cfs_rq_list;
 diff --git a/kernel/sysctl.c b/kernel/sysctl.c
-index 730ab56d9..4948b2cc2 100644
+index 730ab56d9..c4a173c25 100644
 --- a/kernel/sysctl.c
 +++ b/kernel/sysctl.c
 @@ -1666,6 +1666,59 @@ static struct ctl_table kern_table[] = {
@@ -2242,7 +2242,7 @@ index 730ab56d9..4948b2cc2 100644
 +		.mode		= 0644,
 +		.proc_handler	= &proc_dointvec_minmax,
 +		.extra1		= SYSCTL_ZERO,
-+		.extra2		= SYSCTL_ONE,
++		.extra2		= &one_ul,
 +	},
 +#endif
  #ifdef CONFIG_SCHEDSTATS
