@@ -1,0 +1,59 @@
+From a6facedbd112a47f3c223682c0d0038cda557e5d Mon Sep 17 00:00:00 2001
+From: blacksky3 <blacksky3@tuta.io>
+Date: Sun, 27 Mar 2022 19:59:41 -0400
+Subject: [PATCH 1/3] Revert
+ 0004-cacule-5.15-define-yield_mark-and-yield_unmark.patch
+
+---
+ kernel/sched/fair.c | 16 +---------------
+ 1 file changed, 1 insertion(+), 15 deletions(-)
+
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 75227511d..b53b5a0e6 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -57,15 +57,6 @@ unsigned int __read_mostly starve_divisor		= 3000000; // 3ms
+ unsigned int sysctl_sched_latency			= 6000000ULL;
+ static unsigned int normalized_sysctl_sched_latency	= 6000000ULL;
+ 
+-/*
+- * When tasks asks for yield, alter its vruntime
+- * to have high value, so the scheduler won't
+- * pick it if there are other tasks to run.
+- * yield mark get erased after picking another task.
+- */
+-#define YIELD_MARK(se)		((se)->vruntime |= 0x8000000000000000ULL)
+-#define YIELD_UNMARK(se)	((se)->vruntime &= 0x7FFFFFFFFFFFFFFFULL)
+-
+ /*
+  * The initial- and re-scaling of tunables is configurable
+  *
+@@ -7736,9 +7727,6 @@ simple:
+ 
+ 	p = task_of(se);
+ 
+-	if (prev)
+-		YIELD_UNMARK(&prev->se);
+-
+ done: __maybe_unused;
+ #ifdef CONFIG_CACULE_SCHED
+ 	if (prev)
+@@ -7834,8 +7822,6 @@ static void yield_task_fair(struct rq *rq)
+ 	struct sched_entity *se = &curr->se;
+ #endif
+ 
+-	YIELD_MARK(&curr->se);
+-
+ 	/*
+ 	 * Are we the only task in the tree?
+ 	 */
+@@ -12913,4 +12899,4 @@ int sched_trace_rq_nr_running(struct rq *rq)
+ {
+         return rq ? rq->nr_running : -1;
+ }
+-EXPORT_SYMBOL_GPL(sched_trace_rq_nr_running);
+\ No newline at end of file
++EXPORT_SYMBOL_GPL(sched_trace_rq_nr_running);
+-- 
+2.35.1
+

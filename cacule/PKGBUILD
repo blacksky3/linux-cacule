@@ -71,7 +71,10 @@ xanmodpath=https://raw.githubusercontent.com/xanmod/linux-patches/master/linux-$
 
 source=(https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar.xz
         ${archlinuxpath}/config
-        0001-cacule-5.17-v4.patch
+        0001-cacULE-5.17-v2.patch
+        Revert-0002-ZEN-Disable-CacULE-by-default.patch
+        Revert-0003-LL-Disable-RDB-by-default.patch
+        Revert-0004-cacule-5.15-define-yield_mark-and-yield_.patch
         # Piotr Górski patches
         # Arch patches
         ${lucjanpath}/arch-patches/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
@@ -404,7 +407,7 @@ build(){
 }
 
 _package(){
-  pkgdesc='The Linux kernel and modules with Hamad Al Marri CacULE CPU scheduler patch (kept alive artificially by P. Jung), Piotr Górski Arch, Block and CPU patches, XanMod CPU Power patch and Graysky2 kernel_compiler_patch patch'
+  pkgdesc='The Linux kernel and modules with Hamad Al Marri CacULE CPU scheduler patch (kept alive artificially by Piotr Górski), Piotr Górski Arch, Block and CPU patches, XanMod CPU Power patch and Graysky2 kernel_compiler_patch patch'
   depends=(coreutils kmod initramfs)
   optdepends=('crda: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
@@ -520,7 +523,10 @@ _package-headers(){
 
 sha256sums=(555fef61dddb591a83d62dd04e252792f9af4ba9ef14683f64840e46fa20b1b1
             05381b085c83737922a85fa6f42aa61b3d1400840a7952bf8524726e1d8f74f8
-            a8319dc9e5614e3585d128250d8dbdb52bcb960b06aea30e886e8ae0412d1162
+            430dd0c62636839dee68d0a151645c85d9a29041ffe84efa01ac47aff5e49127
+            832db1db51023cb3ad0e55a27460021516f770ed82656d543e37d9f191472123
+            8b25ce5d5977f8b281a00e6117cc9847aa7386157a8614ca169c45c31d45629b
+            c674acd7165df9234c66840565ddeaffdae334dd8f2de63074682ffe11b9086c
             4bd1bac2959b989af0dae573123b9aff7c609090537e94ee0ae05099cad977b8
             4d385d6a7f7fd9f9aba19d5c24c24814e1af370ff245c8dc98b03482a27cb257
             a043e4c393395e6ad50d35c973fa0952f5deb109aee8a23103e24297c027641e

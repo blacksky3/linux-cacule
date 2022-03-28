@@ -1,0 +1,32 @@
+From 195596deb94487ac4aefc03b9be37f1b4806cb44 Mon Sep 17 00:00:00 2001
+From: blacksky3 <blacksky3@tuta.io>
+Date: Sun, 27 Mar 2022 20:03:04 -0400
+Subject: [PATCH 2/3] Revert 0002-ZEN-Disable-CacULE-by-default.patch
+
+---
+ init/Kconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/init/Kconfig b/init/Kconfig
+index 9c1c0a97e..cfffbb6c4 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -867,13 +867,13 @@ endmenu
+ 
+ config CACULE_SCHED
+ 	bool "CacULE CPU scheduler"
+-	default n
++	default y
+ 	help
+ 	  The CacULE CPU scheduler is based on interactivity score mechanism.
+ 	  The interactivity score is inspired by the ULE scheduler (FreeBSD
+ 	  scheduler).
+ 
+-	  If unsure, say N here.
++	  If unsure, say Y here.
+ 
+ config CACULE_RDB
+ 	bool "RDB (Response Driven Balancer)"
+-- 
+2.35.1
+

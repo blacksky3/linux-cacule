@@ -1,0 +1,33 @@
+From b08e73da6204c81499b4e4e5de905ca679731932 Mon Sep 17 00:00:00 2001
+From: blacksky3 <blacksky3@tuta.io>
+Date: Sun, 27 Mar 2022 20:04:06 -0400
+Subject: [PATCH 3/3] Revert 0003-LL-Disable-RDB-by-default.patch
+
+---
+ init/Kconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/init/Kconfig b/init/Kconfig
+index cfffbb6c4..fc080f679 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -877,14 +877,14 @@ config CACULE_SCHED
+ 
+ config CACULE_RDB
+ 	bool "RDB (Response Driven Balancer)"
+-	default n
++	default y
+ 	depends on CACULE_SCHED
+ 	help
+ 	  This is an experimental load balancer for CacULE. It is a lightweight
+ 	  load balancer which is a replacement of CFS load balancer. It migrates
+ 	  tasks based on their interactivity scores.
+ 
+-	  If unsure, say N here.
++	  If unsure, say Y here.
+ 
+ config RDB_INTERVAL
+ 	int "RDB load balancer interval"
+-- 
+2.35.1
+
