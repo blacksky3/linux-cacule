@@ -423,7 +423,7 @@ build(){
 _package(){
   pkgdesc='The Linux kernel and modules with Hamad Al Marri CacULE CPU scheduler (kept alive artificially by Piotr Górski), Arch, Block, CPU, CPU Power, Futex, Wine and kernel_compiler_patch patch - RDB (Response Driven Balancer) enabled'
   depends=(coreutils kmod initramfs)
-  optdepends=('crda: to set the correct wireless channels of your country'
+  optdepends=('wireless-regdb: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
   provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
 
