@@ -4,7 +4,7 @@ Linux kernel build for Archlinux with Hamad Al Marri CacULE CPU scheduler (kept 
 
 # Version
 
-- 5.17.4
+- 5.17.5
 
 # Build
 
