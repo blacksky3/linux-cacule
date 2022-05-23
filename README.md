@@ -1,10 +1,10 @@
 # linux-cacule
 
-Linux kernel build for Archlinux with Hamad Al Marri CacULE CPU scheduler (kept alive artificially by Piotr Górski), Arch, Block, CPU, CPU Power, Futex, Wine and kernel_compiler_patch patch.
+Linux kernel build for Archlinux with Hamad Al Marri CacULE CPU scheduler (kept alive artificially by Piotr Górski), AMD, Arch, Block, CPU, BTRFS, Futex, Wine and kernel_compiler_patch patch.
 
 # Version
 
-- 5.17.9
+- 5.18
 
 # Build
 
