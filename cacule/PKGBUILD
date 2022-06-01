@@ -53,7 +53,7 @@ for _p in "${pkgname[@]}"; do
     _package${_p#$pkgbase}
   }"
 done
-pkgver=5.18
+pkgver=5.18.1
 pkgrel=1
 major=5.18
 arch=(x86_64)
@@ -65,16 +65,13 @@ if [[ "$_compiler" = "2" ]]; then
 fi
 options=(!strip)
 
-archlinuxpath=https://raw.githubusercontent.com/archlinux/svntogit-packages/9f1a7da5b1b65b8dd8a9335d0e2af19ab7f571fc/trunk
+archlinuxpath=https://raw.githubusercontent.com/archlinux/svntogit-packages/34de6c127cc0056bcdb01e3351261276ffbccb71/trunk
 patchpath=https://raw.githubusercontent.com/blacksky3/patches/main/$major
 
 source=(https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar.xz
         ${archlinuxpath}/config
         # CacULE patches
-        ${patchpath}/cacule/0001-cacULE-5.18-v1.patch
-        ${patchpath}/cacule/Revert-0002-ZEN-Disable-CacULE-by-default.patch
-        ${patchpath}/cacule/Revert-0003-LL-Disable-RDB-by-default.patch
-        ${patchpath}/cacule/Revert-0004-cacule-5.15-define-yield_mark-and-yield_.patch
+        ${patchpath}/cacule/ptr1337/0001-cacULE-5.18-v1.patch
         # AMD patches
         ${patchpath}/amd/0001-amd-patches-v1.patch
         # Arch patches
@@ -422,7 +419,7 @@ build(){
 }
 
 _package(){
-  pkgdesc='The Linux kernel and modules with Hamad Al Marri CacULE CPU scheduler (kept alive artificially by Piotr Górski), AMD, Arch, Block, CPU, BTRFS, Futex, Wine and kernel_compiler_patch patch'
+  pkgdesc='The Linux kernel and modules with Hamad Al Marri CacULE CPU scheduler (kept alive artificially by Peter Jung <admin@ptr1337.dev>), AMD, Arch, Block, CPU, BTRFS, Futex, Wine and kernel_compiler_patch patch'
   depends=(coreutils kmod initramfs)
   optdepends=('wireless-regdb: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
@@ -536,12 +533,9 @@ _package-headers(){
   ln -sr "$builddir" "$pkgdir/usr/src/$pkgbase"
 }
 
-sha256sums=('51f3f1684a896e797182a0907299cc1f0ff5e5b51dd9a55478ae63a409855cee'
-            '5088714ec20c9c5b063decbf2210f5b153a908a71678aa156f5f3e81394e9c38'
-            '13e89fa264f8a3a6695832512e22b2df185d4a198b5e46fd7eab68ad79a9d665'
-            '832db1db51023cb3ad0e55a27460021516f770ed82656d543e37d9f191472123'
-            '8b25ce5d5977f8b281a00e6117cc9847aa7386157a8614ca169c45c31d45629b'
-            'c674acd7165df9234c66840565ddeaffdae334dd8f2de63074682ffe11b9086c'
+sha256sums=('83d14126c660186a7a1774a4a5c29d38e170fa5e52cfd2d08fd344dcf1f57d22'
+            '5e34f17f45b3623bd8350b4d2c23ad7525b75c327cc49ec3dc37e3ee168d2f46'
+            'eab1689cf0896b6ec295968955a7870f0a92a3514fcc3e0e20e6117bddba62e3'
             '9824cd3a41db040bf28d6538aa4805f869333139cbcf43e0422e1b42f5401270'
             '4bd1bac2959b989af0dae573123b9aff7c609090537e94ee0ae05099cad977b8'
             '9c0e1dea6f645eee9b09cf7d264b17f00f636bdda35c93d354562dda0d674005'
