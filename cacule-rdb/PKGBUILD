@@ -71,7 +71,7 @@ patchpath=https://raw.githubusercontent.com/blacksky3/patches/main/$major
 source=(https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar.xz
         ${archlinuxpath}/config
         # CacULE patches
-        ${patchpath}/cacule/ptr1337/0001-cacULE-5.18-v1.patch
+        ${patchpath}/cacule/ptr1337/0001-cacULE-5.18-v2.patch
         # AMD patches
         ${patchpath}/amd/0001-amd-patches-v1.patch
         # Arch patches
@@ -535,7 +535,7 @@ _package-headers(){
 
 sha256sums=('83d14126c660186a7a1774a4a5c29d38e170fa5e52cfd2d08fd344dcf1f57d22'
             '5e34f17f45b3623bd8350b4d2c23ad7525b75c327cc49ec3dc37e3ee168d2f46'
-            'eab1689cf0896b6ec295968955a7870f0a92a3514fcc3e0e20e6117bddba62e3'
+            'f587d0f7860e58bae2f2867f69c141a05f2964d9baf1d5be5963e4344ac145ac'
             '9824cd3a41db040bf28d6538aa4805f869333139cbcf43e0422e1b42f5401270'
             '4bd1bac2959b989af0dae573123b9aff7c609090537e94ee0ae05099cad977b8'
             '9c0e1dea6f645eee9b09cf7d264b17f00f636bdda35c93d354562dda0d674005'
