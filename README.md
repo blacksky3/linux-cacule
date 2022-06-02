@@ -9,7 +9,7 @@ Linux kernel build for Archlinux with Hamad Al Marri CacULE CPU scheduler (kept 
 # Build
 
     git clone https://github.com/blacksky3/linux-cacule.git
-    cd linux-cacule/{cacule,cacule-rdb}
+    cd linux-cacule/5.18/{cacule,cacule-rdb}
     env_compiler=(1 or 2) makepkg -s
 
 # Build variables
