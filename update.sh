@@ -14,16 +14,8 @@ major=5.18
 
 echo "${source}"
 
-# build normal package with GCC
+# updpkgsums
 
-# gcc
+cd ${major}/cacule && updpkgsums && cd ${source}
 
-cd ${major}/cacule && makepkg -s && rm -rf pkg/ src/ && cd ${source}
-
-cd ${major}/cacule-rdb && makepkg -s && rm -rf pkg/ src/ && cd ${source}
-
-# clang
-
-#cd ${major}/cacule && env _compiler=2 makepkg -s && rm -rf pkg/ src/ && cd ${source}
-
-#cd ${major}/cacule-rdb && env _compiler=2 makepkg -s && rm -rf pkg/ src/ && cd ${source}
+cd ${major}/cacule-rdb && updpkgsums && cd ${source}
