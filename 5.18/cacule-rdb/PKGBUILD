@@ -53,7 +53,7 @@ for _p in "${pkgname[@]}"; do
     _package${_p#$pkgbase}
   }"
 done
-pkgver=5.18.10
+pkgver=5.18.15
 pkgrel=1
 major=5.18
 arch=(x86_64)
@@ -65,15 +65,15 @@ if [[ "$_compiler" = "2" ]]; then
 fi
 options=(!strip)
 
-archlinuxpath=https://raw.githubusercontent.com/archlinux/svntogit-packages/536d8b9777fb64fb0be5769bbd865dab3f419b66/trunk
+archlinuxpath=https://raw.githubusercontent.com/archlinux/svntogit-packages/5b6f03abc8867248e202d2038d9be87b1da0c5fd/trunk
 patchpath=https://raw.githubusercontent.com/blacksky3/patches/main/$major
 
 source=(https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar.xz
         ${archlinuxpath}/config
         # CacULE patches
         ${patchpath}/cacule/ptr1337/0001-cacULE-5.18-v2.patch
-        # AMD patches
-        ${patchpath}/amd/0001-amd-patches-v2.patch
+        # AMD-PSTATE
+        ${patchpath}/amd-pstate/0001-amd-5.18-amd-pstate-enhancement-and-issue-fixs-v2.patch
         # Arch patches
         ${patchpath}/arch/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
         ${patchpath}/arch/0001-HID-apple-Properly-handle-function-keys-on-Keychron-.patch
@@ -84,7 +84,7 @@ source=(https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar.
         ${patchpath}/block/0002-LL-elevator-set-default-scheduler-to-bfq-for-blk-mq.patch
         ${patchpath}/block/0003-LL-elevator-always-use-bfq-unless-overridden-by-flag.patch
         # BTRFS patches
-        ${patchpath}/btrfs/0001-btrfs-patches-v14.patch
+        ${patchpath}/btrfs/0001-btrfs-patches-v16.patch
         # Clearlinux patches
         ${patchpath}/clearlinux/sirlucjan/0001-clearlinux-patches-v5.patch
         # CPU patches
@@ -422,7 +422,7 @@ build(){
 }
 
 _package(){
-  pkgdesc='The Linux kernel and modules with Hamad Al Marri CacULE CPU scheduler (kept alive artificially by Peter Jung <admin@ptr1337.dev>), AMD, Arch, Block, Clearlinux, CPU, BTRFS, Futex, Wine and kernel_compiler_patch patch - RDB (Response Driven Balancer) enabled'
+  pkgdesc='The Linux kernel and modules with Hamad Al Marri CacULE CPU scheduler (kept alive artificially by Peter Jung <admin@ptr1337.dev>), AMD-PSTATE, Arch, Block, Clearlinux, CPU, BTRFS, Futex, Wine and kernel_compiler_patch patch - RDB (Response Driven Balancer) enabled'
   depends=(coreutils kmod initramfs)
   optdepends=('wireless-regdb: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
@@ -536,10 +536,10 @@ _package-headers(){
   ln -sr "$builddir" "$pkgdir/usr/src/$pkgbase"
 }
 
-sha256sums=('f99e3d01dbb8ee6fe765d9cb2b2e073afd2dc581c0d3979751c862745d73dee3'
-            '382aa201a6a6939210dd8668ab052724547b4bd489b38e97502bbd0848061b35'
+sha256sums=('69804febdc388a69dfb64493b7b58d402853de3a14144ea8db7fd67c30dcbe3c'
+            '6f0fd44dd87dd0ad23f782a26752bb7200d0d163e3a50df6ad3cf5cec7fe948e'
             'f587d0f7860e58bae2f2867f69c141a05f2964d9baf1d5be5963e4344ac145ac'
-            '1bf652a04412a58b0254066a4731be869bfbe2cff15f0648e31e6b3d3e337a36'
+            '6619dd26d12437ca78e7a67ab21c944604f13b2367d05e603e028aab453fe0a0'
             '4bd1bac2959b989af0dae573123b9aff7c609090537e94ee0ae05099cad977b8'
             '2c9378d3c41751fdd9bb51ad47b43659c89f09904e8dc0264689dc6182d41c4b'
             '9c0e1dea6f645eee9b09cf7d264b17f00f636bdda35c93d354562dda0d674005'
@@ -547,7 +547,7 @@ sha256sums=('f99e3d01dbb8ee6fe765d9cb2b2e073afd2dc581c0d3979751c862745d73dee3'
             'e4dd2216fc31d0eab68d674cbbce70343f920c5146613e97fe8c3afed3139157'
             '7a7f9a4d66abe261f35373002e3556b8af7204d155896c2e6d1b55d74a31b5b8'
             '3829e6f9dd55e5c0ae997d409b15c8784e7584a820c7aa0941d50ed6dffeab31'
-            '18ff5050e3e58501a50a66851ff5bf0f7ba720585e23d23a60f335ecc99a66c5'
+            '90e284b8f09171e2b2bcd598ad1952dfb6bdeeb8ed39295bb67c539b9b41e4b3'
             '3e217f0cb056bd823b0d593e5fb66e6acd891a21e1ba6343b7b976c4f9075521'
             'cd634fe619625b01584cd01534b23c2d4eca8146c9690205806b0db5d8029906'
             '26fd09d627f83eb78ecd7e65356731d501b89fbc6cd339018aa1ccd708c4756f'
