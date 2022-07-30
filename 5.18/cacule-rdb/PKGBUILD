@@ -359,10 +359,10 @@ prepare(){
 
   sleep 2s
 
-  msg2 "Enable PERF_EVENTS_AMD_BRS"
-  scripts/config --enable CONFIG_PERF_EVENTS_AMD_BRS
+  #msg2 "Enable PERF_EVENTS_AMD_BRS"
+  #scripts/config --enable CONFIG_PERF_EVENTS_AMD_BRS
 
-  sleep 2s
+  #sleep 2s
 
   msg2 "Enable Winesync"
   scripts/config --enable CONFIG_WINESYNC
