@@ -10,7 +10,7 @@
 #!/bin/bash
 
 source=$(pwd)
-major=5.18
+major=5.19
 
 echo "${source}"
 
